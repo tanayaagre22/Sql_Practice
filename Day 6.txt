@@ -1,0 +1,20 @@
+1.Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+Ans:select city ,length(city) as city_length
+from station
+order by length(city) ASC ,city ASC
+LIMIT 1;
+
+select city ,length(city) as city_length
+from station
+order by length(city) DESC ,city ASC
+LIMIT 1;
+
+2.Query a count of the number of cities in CITY having a Population larger than 1000
+Ans : select count(population) from city where population >100000
+
+3. Query the total population of all cities in CITY where District is California.
+Ans :select sum(population) from city where district ='california'
+
+4.Query the average population of all cities in CITY where District is California.
+Ans:select avg(population) from city where district='California'
