@@ -1,0 +1,30 @@
+1.Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 388.770. Round your answer to  decimal places.
+ANS : select round (LONG_W,4)
+from station
+where LAT_N= (select MIN(LAT_N) 
+from station
+where LAT_N > 38.7780);
+
+2. Consider  and  to be two points on a 2D plane.
+
+ a happens to equal the minimum value in Northern Latitude (LAT_N in STATION). 
+ b happens to equal the minimum value in Western Longitude (LONG_W in STATION). 
+ c happens to equal the maximum value in Northern Latitude (LAT_N in STATION). 
+d  happens to equal the maximum value in Western Longitude (LONG_W in STATION). 
+Query the Manhattan Distance between points  P1 and P2 and round it to a scale of 4  decimal places.
+
+ANS :SELECT ROUND(
+    ABS(MAX(LAT_N) - MIN(LAT_N)) + 
+    ABS(MAX(LONG_W) - MIN(LONG_W)), 
+    4
+) AS Manhattan_Distance
+FROM STATION;
+
+3. Consider P1(a,c) and P2(b,d) to be two points on a 2D plane where (a,b) are the respective minimum and (c,d) maximum values of Northern Latitude (LAT_N) and  are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION. 
+
+Query the Euclidean Distance between points P1and P2  and format your answer to display 4 decimal digits.
+
+ANS : select round (sqrt(power(max(lat_n)- min(lat_n),2)+ POWER(MAX(LONG_W) - MIN(LONG_W), 2)),4)
+as euclidean_distance
+                   from station;
+4. 
